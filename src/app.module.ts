@@ -1,0 +1,9 @@
+import { Module } from '@nestjs/common';
+import { AuthModule } from './auth/auth.modules';
+import { UserModule } from './user/user.module';
+import { BookmarkModule } from './bookmark/bookmark.module';
+
+@Module({
+  imports: [AuthModule, UserModule, BookmarkModule],
+})
+export class AppModule {}
