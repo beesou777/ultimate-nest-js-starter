@@ -6,6 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prisma:dev:deploy":"prisma migrate deploy",
+    "db:dev:rm":"sudo docker container rm -f dev-db",
+    "db:dev:up":"sudo docker run --name dev-db -e POSTGRES_PASSWORD=b -d postgres",
+    "db:dev:restart":"npm run db:dev:rm && npm run db:dev:up",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

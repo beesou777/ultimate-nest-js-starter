@@ -35,7 +35,36 @@ export class AuthService {
        }
     }
 
-    login() {
-        return { msg: "hello this is sign in" }
+    async login(dto:AuthDto){
+        try {
+            const user = this.prisma.user.findUnique({
+                where:{
+                    email:String(dto.email)
+                }
+            })
+
+            if(!user){
+                throw new ForbiddenException('Credentials incorrect')
+            }
+
+            const pwMatches = await argon.verify(
+                (await user).hash,
+                String(dto.password)
+            )
+
+            if(!pwMatches){
+                throw new ForbiddenException('Credentials incorrect')
+            }
+
+            delete (await user).hash
+            return user
+        } catch (error) {
+            if(error instanceof PrismaClientKnownRequestError){
+                if(error.code === 'P2002'){
+                    throw new ForbiddenException('Credentials unmatched')
+                }
+            }
+            throw error
+        }
     }
 }
