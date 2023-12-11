@@ -6,10 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prisma:dev:deploy":"prisma migrate deploy",
-    "db:dev:rm":"sudo docker container rm -f dev-db",
-    "db:dev:up":"sudo docker run --name dev-db -e POSTGRES_PASSWORD=b -d postgres",
-    "db:dev:restart":"npm run db:dev:rm && npm run db:dev:up",
+    "prisma:dev:deploy": "prisma migrate deploy",
+    "db:dev:rm": "sudo docker container rm -f dev-db",
+    "db:dev:up": "sudo docker run --name dev-db -e POSTGRES_PASSWORD=b -d postgres",
+    "db:dev:restart": "npm run db:dev:rm && npm run db:dev:up",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "@prisma/client": "^5.7.0",
