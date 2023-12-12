@@ -18,6 +18,7 @@ export class JwtStrategy extends PassportStrategy(
             secretOrKey: config.get('JWT_SECRET')
         })
     }
+    
     async validate(playload:{
         sub:number;
         email:string;
