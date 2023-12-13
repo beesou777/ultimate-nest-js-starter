@@ -24,7 +24,7 @@ export class BookmarkService {
         userId: number,
         dto: EditBookmarkDto,
         bookmarkId:number
-    ) { }
+    ) { } 
 
     deleteBookmarksById( 
         userId: number, 
