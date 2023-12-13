@@ -22,6 +22,7 @@ export class BookmarkService {
     ) { 
         return this.prisma.bookmark.findFirst({
             where:{
+                id:bookmarkId,
                 userId
             }
         })
@@ -32,12 +33,13 @@ export class BookmarkService {
         userId: number,
         dto: CreateBookmarkDto
     ) { 
-        await this.prisma.bookmark.create({
+        const bookmark = await this.prisma.bookmark.create({
             data:{
                 userId,
                 ...dto
             }
         })
+        return bookmark
     }
 
 
@@ -45,7 +47,9 @@ export class BookmarkService {
         userId: number,
         dto: EditBookmarkDto,
         bookmarkId:number
-    ) { } 
+    ) { 
+        
+    } 
 
     deleteBookmarksById( 
         userId: number, 
