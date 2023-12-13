@@ -27,8 +27,7 @@ export class AuthService {
             })
             delete user.hash
             // save new user in db
-
-
+            
             // return the save user
             return user
         } catch (error) {
