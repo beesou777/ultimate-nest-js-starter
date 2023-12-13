@@ -19,13 +19,21 @@ export class BookmarkService {
     getBookmarksById(
         userId: number,
         bookmarkId: number
-    ) { }
+    ) { 
+        return this.prisma.bookmark.findFirst({
+            where:{
+                userId
+            }
+        })
+    }
 
 
     createBookmarksById(
         userId: number,
         dto: CreateBookmarkDto
-    ) { }
+    ) { 
+        
+    }
 
 
     editBookmarksById(
