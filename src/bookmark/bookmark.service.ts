@@ -26,7 +26,7 @@ export class BookmarkService {
         bookmarkId:number
     ) { }
 
-    deleteBookmarksById(
+    deleteBookmarksById( 
         userId: number, 
         bookmarkId: null
     ) { }
