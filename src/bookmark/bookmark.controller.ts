@@ -8,31 +8,43 @@ export class BookmarkController {
     @Get()
     getBookmarks(
         @GetUser('id') userId: number,
-    ) { }
+    ) { 
+        return this.getBookmarks(userId)
+    }
+
 
     @Get(':id')
     getBookmarksById(
         @GetUser('id') userId: number,
         @Param('id', ParseIntPipe) bookmarkId: number
-    ) { }
+    ) {
+        return this.getBookmarksById(userId,bookmarkId)
+     }
 
     @Post()
-    updateBookmarksById(
+    createBookmarksById(
         @GetUser('id') userId: number,
         @Body() dto: CreateBookmarkDto
-    ) { }
+    ) { 
+        return this.createBookmarksById(userId,dto)
+    }
 
-    @Patch()
+    @Patch(':id')
     editBookmarksById(
         @GetUser('id') userId: number,
-        @Body() dto: EditBookmarkDto
-    ) { }
+        @Body() dto: EditBookmarkDto,
+        @Param('id', ParseIntPipe) bookmarkId: number
+    ) { 
+        return this.editBookmarksById(userId,dto,bookmarkId)
+    }
 
     @Delete(':id')
     deleteBookmarksById(
         @GetUser('id') userId: number,
         @Param('id', ParseIntPipe) bookmarkId: number
 
-    ) { }
+    ) {
+        return  this.deleteBookmarksById(userId,bookmarkId)
+    }
 
 }

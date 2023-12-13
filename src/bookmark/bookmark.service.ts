@@ -6,9 +6,7 @@ import { EditBookmarkDto } from './dto/edit-bookmark.dto';
 export class BookmarkService {
     getBookmarks(
         userId: number
-    ) { 
-        
-    }
+    ) { }
 
     getBookmarksById(
         userId: number,
@@ -16,7 +14,7 @@ export class BookmarkService {
     ) { }
 
 
-    updateBookmarksById(
+    createBookmarksById(
         userId: number,
         dto: CreateBookmarkDto
     ) { }
@@ -24,7 +22,8 @@ export class BookmarkService {
 
     editBookmarksById(
         userId: number,
-        dto: EditBookmarkDto
+        dto: EditBookmarkDto,
+        bookmarkId:number
     ) { }
 
     deleteBookmarksById(
