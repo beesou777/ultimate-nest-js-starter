@@ -31,4 +31,3 @@ export class BookmarkService {
         bookmarkId: null
     ) { }
 }
-  
